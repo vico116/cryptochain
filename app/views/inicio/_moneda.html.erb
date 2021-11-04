@@ -1,0 +1,35 @@
+<!-- Inicia _moneda.html.erb -->
+<div class="relative flex flex-col justify-between p-2 lg:p-3 xl:p-2 rounded-2xl">
+  <div class="absolute inset-0 w-full h-full rounded-2xl"></div>
+  <div class="absolute inset-0 w-full h-full border-2 border-gray-900 rounded-2xl"></div>
+  <div class="relative flex pb-5 space-x-5 border-b border-gray-200 lg:space-x-3 xl:space-x-5">
+    <div class="relative flex flex-col px-12 items-center justify-center">
+      <%= image_tag "#{cryptomoneda['moneda']+'.jpeg'}", class: "w-16 h-16" %>
+      <h3 class="text-xl font-bold"><%= cryptomoneda['moneda'] %> (<%= cryptomoneda['symbol'] %>)</h3>
+    </div>
+  </div>
+  <ul class="relative py-2 space-y-2">
+    <li class="flex items-center text-sm font-medium text-gray-500">
+      <%= heroicon "check", variant: :outline, options: { class: "w-6 h-6" } %>
+      <span class="font-bold text-gray-800">MONTHLY RATE: <%= cryptomoneda['interes_mensual'] %>%</span>
+    </li>
+    <li class="flex items-center text-sm font-medium text-gray-500">
+      <%= heroicon "check", variant: :outline, options: { class: "w-6 h-6" } %>
+      <span class="font-bold text-gray-800">PRICE: <%= number_to_currency( cryptomoneda['price'] ) %> USD</span>
+    </li>
+    <li class="flex items-center text-sm font-medium text-gray-500">
+      <%= heroicon "check", variant: :outline, options: { class: "w-6 h-6" } %>
+      <span class="font-bold text-gray-800">INVESTMENT:
+        <%= cryptomoneda['inversion'] > 0? cryptomoneda['inversion'] : cryptomoneda['balance_inicial'] %> </span>
+    </li>
+    <li class="flex items-center text-sm font-medium text-gray-500">
+      <%= heroicon "check", variant: :outline, options: { class: "w-6 h-6" } %>
+      <span class="font-bold text-gray-800">MONTHLY YIELD: <%= number_to_currency( cryptomoneda['mensual_usd'] ) %> (USD) </span>
+    </li>
+    <li class="flex items-center text-sm font-medium text-gray-500">
+      <%= heroicon "check", variant: :outline, options: { class: "w-6 h-6" } %>
+      <span class="font-bold text-gray-800">ANNUAL YIELD: <%= number_to_currency( cryptomoneda['anual_usd'] ) %> (USD) </span>
+    </li>
+  </ul>
+</div>
+<!-- Termina _moneda.html.erb -->

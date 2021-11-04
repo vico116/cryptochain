@@ -1,0 +1,63 @@
+<!-- inicia index.html.erb -->
+<section class="w-full pt-4 pb-6 bg-gray-50">
+  <div class="px-10 mx-auto text-center max-w-7xl">
+    <h2 class="text-5xl font-bold text-blue-600">
+      Disruptive <span class="text-gray-800">Studio</span>
+    </h2>
+    <p class="mt-3 text-lg text-gray-500">Experts in the Management of BlockChain & Cryptocurrencies.</p>
+    <div class="grid gap-5 mt-12 lg:grid-cols-4 md:grid-cols-2">
+      <% @cryptomonedas.each do |cryptomoneda| %>
+        <%= render partial: "moneda", locals: { cryptomoneda: cryptomoneda } %>
+      <% end %>
+      <%= render "calculadora" %>
+    </div>
+  </div>
+</section>
+<div class="flex justify-center ">
+  <div class="col-span-2 bg-gray-900 px-10">
+    <div class="overflow-auto lg:overflow-visible ">
+      <table class="table text-gray-400 border-separate space-y-6 text-sm">
+        <thead class="bg-gray-800 text-gray-500">
+          <tr>
+            <th class="p-3">ASSET</th>
+            <th class="p-3 text-right">PRICE (USD)</th>
+            <th class="p-3 text-right">CHANGE (24H)</th>
+            <th class="p-3 text-right">REAL VOLUME (24H)</th>
+            <th class="p-3 text-right">INVESTMENT</th>
+            <th class="p-3 text-right">MONTHLY YIELD</th>
+            <th class="p-3 text-right">ANNUAL YIELD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cryptomonedas.each do |cryptomoneda| %>
+            <%= render partial: "tabla", locals: { cryptomoneda: cryptomoneda } %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<style>
+  .table {
+    border-spacing: 0 15px;
+  }
+
+  i {
+    font-size: 1rem !important;
+  }
+
+  .table tr {
+    border-radius: 20px;
+  }
+
+  tr td:nth-child(n+5),
+  tr th:nth-child(n+5) {
+    border-radius: 0 .625rem .625rem 0;
+  }
+
+  tr td:nth-child(1),
+  tr th:nth-child(1) {
+    border-radius: .625rem 0 0 .625rem;
+  }
+</style>
+<!-- termina index.html.erb -->

@@ -1,0 +1,40 @@
+<!-- inicia _tabla.html.erb -->
+<tr class="bg-gray-800">
+  <td class="p-3">
+    <div class="flex align-items-center">
+      <%= image_tag "#{cryptomoneda['moneda']+'.jpeg'}", class: "w-7 h-7 rounded-full object-cover" %>
+      <div class="ml-3">
+        <%= cryptomoneda['moneda'] %> (<%= cryptomoneda['symbol'] %>)
+      </div>
+    </div>
+  </td>
+  <td class="p-3 font-bold">
+    <%= number_to_currency( cryptomoneda['price'] ) %>
+  </td>
+  <td class="p-3 font-bold">
+    <div class="flex align-items-center">
+      <%= cryptomoneda['change_24h'] %>
+    </div>
+  </td>
+  <td class="p-3 font-bold">
+    <div class="flex align-items-center">
+      <%= number_to_currency( cryptomoneda['volume_24h'] ) %>
+    </div>
+  </td>
+  <td class="p-3 font-bold">
+    <div class="flex align-items-center">
+      <%= number_to_currency( cryptomoneda['inversion'] ) %> (USD)
+    </div>
+  </td>
+  <td class="p-3 font-bold">
+    <div class="flex align-items-center">
+      <%= cryptomoneda['mensual_crypto'] %> (<%= cryptomoneda['symbol'] %>)
+    </div>
+  </td>
+  <td class="p-3 font-bold">
+    <div class="flex align-items-center">
+      <%= cryptomoneda['anual_crypto'] %> (<%= cryptomoneda['symbol'] %>)
+    </div>
+  </td>
+</tr>
+<!-- termina _tabla.html.erb -->

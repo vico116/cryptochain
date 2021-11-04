@@ -1,0 +1,27 @@
+<!-- Inicia _calculadora.html.erb -->
+<div class="relative flex flex-col justify-between p-2 lg:p-3 xl:p-2 rounded-2xl">
+  <div class="absolute inset-0 w-full h-full rounded-2xl"></div>
+  <div class="absolute inset-0 w-full h-full border-2 border-gray-900 rounded-2xl"></div>
+  <div class="relative flex pb-5 space-x-3 border-b border-gray-200 lg:space-x-3 xl:space-x-3">
+    <div class="relative flex flex-col px-3 items-center justify-center">
+      <h3 class="text-xl font-bold">Calculate Your Investment </h3>
+    </div>
+  </div>
+  <%= form_with url: root_path, method: :get do |form| %>
+    <div class="relative py-2 space-y-2">
+      <%= form.number_field :inversion, value: params[:inversion], class:"relative flex items-center justify-center w-full border-2 border-black px-4 py-2 text-right text-lg font-bold text-gray-500", autofocus: true, placeholder: "0.00" %>
+    </div>
+    <div class="relative py-2 space-y-2">
+      <%= form.submit "Calculate", class: "relative flex items-center justify-center w-full px-5 py-2 text-lg font-medium text-white rounded-xl group bg-blue-600" %>
+    </div>
+  <% end %>
+  <div class="relative py-2 space-y-2">
+    <%= link_to "Export (CSV)", root_path(format: "csv"),
+      class: "relative flex items-center justify-center w-full px-5 py-2 text-lg font-medium text-white rounded-xl group bg-green-600" %>
+  </div>
+  <div class="relative py-2 space-y-2">
+    <%= link_to "Export (JSON)", root_path(format: "json"),
+      class: "relative flex items-center justify-center w-full px-5 py-2 text-lg font-medium text-white rounded-xl group bg-gray-600" %>
+  </div>
+</div>
+<!-- Termina _calculadora.html.erb -->
